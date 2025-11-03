@@ -1,1 +1,3 @@
-# vygonzalezlopez.github.io
+CS 499 Computer Science Captstone
+
+Victor Y. Gonzalez Lopez
