@@ -1,0 +1,203 @@
+/* 
+  === Global Color Palette ===
+  Purpose:
+    - Defines the base color scheme for the application to maintain consistent branding.
+    - Colors chosen to match a clean, professional inventory-management aesthetic.
+*/
+:root{
+  --bg: #ffffff;      /* Primary background color */
+  --green: #0a7f51;   /* Money green — main brand color */
+  --green-100: #d9f2e6; /* Light green for accents and highlight backgrounds */
+  --brown: #6b4f2a;   /* Brown accent color for subtle emphasis */
+  --text: #1f2937;    /* Standard text color */
+  --muted: #6b7280;   /* Muted gray for secondary text */
+  --border: #e5e7eb;  /* Light gray used for borders and separators */
+}
+
+
+/* === Global Resets & Body Styling === */
+*{ box-sizing: border-box; } /* Ensures padding/border don't affect element size */
+
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; /* Modern readable font stack */
+  color: var(--text);         /* Default text color */
+  background: var(--bg);      /* Default background color */
+}
+
+.container{
+  max-width: 1100px;          /* Constrains content width for readability */
+  margin: 0 auto;             /* Centers container */
+  padding: 1.5rem;            /* Standard page padding */
+}
+
+
+/* 
+  === Header Section ===
+  Purpose:
+    - Houses page title, search bar, and navigation menu.
+    - Uses gradients and spacing to create an elevated header feel.
+*/
+.header{
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(0deg, var(--green-100), #fff); /* Subtle fade for professional look */
+  padding: 0.75rem 1.5rem;
+}
+
+.header__top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+
+.app-title{
+  margin:0;
+  color: var(--green); /* Reinforces brand color */
+}
+
+.search input{
+  padding:0.5rem 0.75rem;
+  border:1px solid var(--border);
+  border-radius:8px;
+}
+
+.search .btn{
+  margin-left:0.5rem;
+}
+
+
+/* === Navigation Bar === */
+.nav{
+  display:flex;
+  gap:1rem;
+  padding:0.5rem 0;
+  margin-top:0.5rem;
+}
+
+.nav a{
+  text-decoration:none;
+  color: var(--green);        /* Uses brand color for interactive elements */
+  padding: 0.35rem 0.6rem;
+  border-radius:10px;
+}
+
+.nav a:hover{
+  background: var(--green-100); /* Hover feedback using soft accent color */
+}
+
+
+/* 
+  === Role Box / User Welcome Banner ===
+  Purpose:
+    - Displays the logged-in user's name, role, and role-based message.
+*/
+.role-box{
+  background: var(--green-100);
+  border:1px solid var(--border);
+  border-left:4px solid var(--green); /* Visual left accent bar */
+  padding:1rem 1.25rem;
+  border-radius:12px;
+  margin:1rem 0 1.25rem;
+}
+
+.muted{ color: var(--muted); } /* For secondary text */
+
+
+/* 
+  === Inventory Table Section ===
+  Purpose:
+    - Displays inventory items in a clean, modern card-table layout.
+    - Includes placeholders for sorting/filtering buttons.
+*/
+.table-card{
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,.04); /* Light shadow for depth */
+}
+
+.table-card__header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#fff;
+  border-bottom:1px solid var(--border);
+  padding:0.75rem 1rem;
+}
+
+.table-wrapper{ overflow-x:auto; } /* Ensures wide tables scroll on mobile */
+
+.table{
+  width:100%;
+  border-collapse: collapse;
+  background:#fff;
+}
+
+.table th, .table td{
+  padding:0.75rem 1rem;
+  border-bottom:1px solid var(--border);
+}
+
+.table th{
+  text-align:left;
+  font-weight:600;
+  color: var(--brown); /* Uses brown accent to distinguish headers */
+}
+
+.sort{
+  font-size: 0.85em;
+  color: var(--muted);
+  margin-left: 0.25rem;
+}
+
+
+/* === Buttons === */
+.btn{
+  background: var(--green);
+  color:#fff;
+  border:none;
+  padding:0.5rem 0.8rem;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.btn:hover{ 
+  filter: brightness(0.95); /* Subtle hover darkening */
+}
+
+.btn--small{
+  padding:0.35rem 0.6rem;
+  font-size:0.9rem;
+}
+
+.btn--danger{
+  background: #b91c1c; /* Standard red for destructive actions */
+}
+
+
+/* 
+  === Footer Section ===
+  Purpose:
+    - Displays link placeholders and copyright year.
+*/
+.footer{
+  margin-top: 2rem;
+  border-top:1px solid var(--border);
+  padding:1rem 1.5rem;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.footer__links a{
+  margin-right:0.75rem;
+  color: var(--green);
+  text-decoration:none;
+}
+
+.footer__copy{
+  margin:0;
+  color: var(--muted);
+}

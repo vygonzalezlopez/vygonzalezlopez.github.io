@@ -1,0 +1,24 @@
+{{!-- 
+  === Partial: footer.hbs ===
+  Purpose:
+    - Provides a consistent footer section for all pages across the application.
+    - Contains placeholder social links that will be replaced with functional pages later.
+    - Displays dynamic copyright year.
+  
+  Interactions:
+    - Included in the main layout via {{> footer}} inside main.hbs.
+    - /placeholder route handles all social link clicks during early development.
+    - {{year}} is passed in app.js using res.locals.year for global availability.
+--}}
+
+<footer class="footer"> <!-- Main footer wrapper with CSS styling -->
+  <div class="footer__links"> <!-- Container for grouped social link placeholders -->
+    <a href="/placeholder">Facebook</a> <!-- Links to placeholder page until real pages exist -->
+    <a href="/placeholder">Instagram</a> <!-- Same placeholder route used for consistency -->
+    <a href="/placeholder">LinkedIn</a> <!-- Placeholder for professional network link -->
+  </div>
+
+  <p class="footer__copy">
+    © {{year}} CS-499 Computer Science Capstone <!-- Dynamic year + app attribution -->
+  </p>
+</footer>

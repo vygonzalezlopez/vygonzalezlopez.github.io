@@ -1,0 +1,39 @@
+{{!-- 
+  === Handlebars Layout: main.hbs ===
+  Purpose:
+    - Serves as the master template for the entire application.
+    - Defines the global HTML structure (head, header partial, footer partial).
+    - Wraps all individual pages (index.hbs, placeholder.hbs, etc.) inside a consistent layout.
+  
+  Interactions:
+    - Automatically used by Express-Handlebars to wrap all views.
+    - Injects dynamic page titles via {{title}}.
+    - Loads partials: header.hbs and footer.hbs.
+    - Body content from each page is inserted where {{{body}}} is located.
+--}}
+
+<!DOCTYPE html> <!-- Declares HTML5 document type -->
+<html lang="en"> <!-- Sets language for accessibility and SEO -->
+
+<head>
+  <meta charset="utf-8"> <!-- Ensures proper text encoding -->
+  <title>{{title}}</title> <!-- Dynamically sets page title from controller -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Enables responsive design -->
+
+  <link rel="stylesheet" href="/css/styles.css"> <!-- Loads global CSS styles -->
+  <script defer src="/javascripts/main.js"></script> <!-- Loads global JS with defer to avoid blocking render -->
+</head>
+
+<body>
+  {{> header}} <!-- Inserts the header partial (navigation bar, branding, search bar) -->
+
+  <main class="container"> <!-- Central wrapper for page-specific content -->
+    {{{body}}} <!-- The actual content of the current page is injected here -->
+  </main>
+
+  {{> footer}} <!-- Inserts the footer partial (links, placeholders, future features) -->
+</body>
+
+</html>
+

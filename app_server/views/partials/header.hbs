@@ -1,0 +1,39 @@
+{{!-- 
+  === Partial: header.hbs ===
+  Purpose:
+    - Provides a consistent top navigation and search bar for all application pages.
+    - Displays the application title and core navigation links.
+    - Includes a client-side search input (functionality implemented later).
+  
+  Interactions:
+    - Included in the main layout using {{> header}} in main.hbs.
+    - Search input and button interact with /public/javascripts/main.js (future enhancement).
+    - Navigation links route to dashboard and placeholder pages until real routing is implemented.
+--}}
+
+<header class="header"> <!-- Wrapper for the entire header component -->
+
+  <div class="header__top"> <!-- Top section containing title and search bar -->
+    <h1 class="app-title">Inventory Management System</h1> <!-- Static title shown across all pages -->
+
+    <div class="search"> <!-- Search bar container -->
+      <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Search items..." 
+        aria-label="Search items"
+      > <!-- Text input field for search term entry -->
+
+      <button id="searchBtn" class="btn">Search</button> <!-- Search button (functionality added later) -->
+    </div>
+  </div>
+
+  <nav class="nav"> <!-- Main navigation bar for page links -->
+    <a href="/">Dashboard</a> <!-- Returns user to the main inventory dashboard -->
+    <a href="/placeholder">Reports</a> <!-- Placeholder route for future reporting feature -->
+    <a href="/placeholder">Orders</a> <!-- Placeholder for future order management -->
+    <a href="/placeholder">Users</a> <!-- Placeholder for future user role/management -->
+    <a href="/placeholder">Settings</a> <!-- Placeholder for configuration options -->
+  </nav>
+
+</header>

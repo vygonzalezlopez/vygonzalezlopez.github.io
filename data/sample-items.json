@@ -1,0 +1,21 @@
+[
+    { 
+        "id" : "1000001", 
+        "sku": "ABC-001", 
+        "name": "RJ45 Patch Cable", 
+        "manufacturer": "Belden", 
+        "qty": 24 
+    } , { 
+        "id" : "1000002",
+        "sku" : "SW-2960",
+        "name" : "Cisco 2960 Switch", 
+        "manufacturer" : "Cisco", 
+        "qty" : 3 
+    } , { 
+        "id": "1000003", 
+        "sku": "SRV-R610", 
+        "name" : "Dell R610 Server", 
+        "manufacturer": "Dell", 
+        "qty": 1 
+    }
+]

@@ -1,0 +1,76 @@
+{{!-- 
+  === View Template: index.hbs ===
+  Purpose:
+    - Serves as the main dashboard page after a user logs in.
+    - Displays a welcome message based on user role.
+    - Renders the inventory table using data passed from inventory.controller.js.
+    - Provides UI placeholders for search/filter/sort features that will be implemented later.
+
+  Interactions:
+    - Receives {{user}}, {{roleMessage}}, and {{items}} from inventory.index controller.
+    - Wrapped by main.hbs layout (header, footer, global styling).
+    - Future interaction points include JavaScript logic for searching, sorting, and row actions.
+--}}
+
+<section class="role-box"> <!-- Section displaying personalized welcome and role information -->
+  <h2>Welcome, {{user.name}} ({{user.role}})</h2> <!-- Dynamic greeting based on injected user object -->
+  <p class="muted">{{roleMessage}}</p> <!-- Placeholder dynamic system messages based on role or system events -->
+</section>
+
+
+<section class="table-card"> <!-- Card-style container for inventory table and actions -->
+
+  <div class="table-card__header"> <!-- Header row with title and filter UI -->
+    <h3>Inventory</h3> <!-- Section title -->
+
+    <div class="table-actions"> <!-- Filter input + button (functionality added later) -->
+      <input 
+        type="text" 
+        id="filterInput" 
+        placeholder="Filter..." 
+        aria-label="Filter table"
+      > <!-- User enters filter text -->
+
+      <button class="btn" id="filterBtn">Apply</button> <!-- Placeholder button for future filter logic -->
+    </div>
+  </div>
+
+
+  <div class="table-wrapper"> <!-- Scroll wrapper for table responsiveness -->
+    <table class="table"> <!-- Inventory data table -->
+      <thead>
+        <tr>
+          {{!-- Each header includes a sort indicator for future interactive sorting --}}
+          <th data-sort="id">Item ID <span class="sort">↕</span></th> <!-- Sort by ID placeholder -->
+          <th data-sort="sku">SKU <span class="sort">↕</span></th> <!-- Sort by SKU placeholder -->
+          <th data-sort="name">Name <span class="sort">↕</span></th> <!-- Sort by Name placeholder -->
+          <th data-sort="manufacturer">Manufacturer <span class="sort">↕</span></th> <!-- Sort by Manufacturer -->
+          <th data-sort="qty">Qty <span class="sort">↕</span></th> <!-- Sort by Quantity -->
+          <th>Actions</th> <!-- No sort; contains Edit/Delete buttons -->
+        </tr>
+      </thead>
+
+      <tbody id="inventoryBody"> <!-- Table body dynamically populated via Handlebars each-block -->
+        {{#each items}} <!-- Iterates through the array provided by controller -->
+          <tr> <!-- Represents one item row in the inventory table -->
+            <td>{{id}}</td> <!-- Item ID -->
+            <td>{{sku}}</td> <!-- Stock keeping unit -->
+            <td>{{name}}</td> <!-- Item name -->
+            <td>{{manufacturer}}</td> <!-- Item manufacturer -->
+            <td>{{qty}}</td> <!-- Item quantity -->
+            <td>
+              {{!-- Edit/Delete are placeholders until API endpoints exist --}}
+              <button class="btn btn--small" id="editBtn">Edit</button> <!-- Future edit modal trigger -->
+              <button class="btn btn--small btn--danger" id="deleteBtn">Delete</button> <!-- Future delete action -->
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+  <p class="muted">
+    * Sorting/filtering are placeholders for now; real behavior will come with the API.
+  </p> <!-- Clarifies that front-end table logic will be implemented later -->
+
+</section>
