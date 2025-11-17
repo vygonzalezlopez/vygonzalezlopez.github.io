@@ -61,5 +61,43 @@ document.addEventListener("DOMContentLoaded", () => {  // Runs once the full DOM
   document.getElementById("deleteBtn")?.addEventListener("click", () => {
     alert("Delete is a placeholder. API deleting will be added later.");
   });
+
+   // === Logout modal logic ===
+  const logoutBtn = document.getElementById("logoutBtn");
+  const logoutModal = document.getElementById("logoutModal");
+  const confirmLogoutBtn = document.getElementById("confirmLogoutBtn");
+  const cancelLogoutBtn = document.getElementById("cancelLogoutBtn");
+
+  function openLogoutModal(){
+    if (logoutModal) {
+      logoutModal.classList.remove("hidden");
+    }
+  }
+
+  function closeLogoutModal(){
+    if (logoutModal) {
+      logoutModal.classList.add("hidden");
+    }
+  }
+
+  logoutBtn?.addEventListener("click", () => {
+    openLogoutModal();
+  });
+
+  confirmLogoutBtn?.addEventListener("click", () => {
+    // For now, just return to login page
+    window.location.href = "/";
+  });
+
+  cancelLogoutBtn?.addEventListener("click", () => {
+    closeLogoutModal();
+  });
+
+  // Optional: close modal if user clicks outside the box
+  logoutModal?.addEventListener("click", (e) => {
+    if (e.target === logoutModal) {
+      closeLogoutModal();
+    }
+  });
 });
 

@@ -1,0 +1,30 @@
+{{!-- 
+  === Layout: auth.hbs ===
+  Purpose:
+    - Minimal layout for authentication-related pages (login, etc.).
+    - Does NOT include the standard header.
+--}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/css/styles.css">
+  <script defer src="/javascripts/login.js"></script> {{!-- Login-specific client logic --}}
+</head>
+<header class="header"> <!-- Wrapper for the entire header component -->
+
+  <div class="header__top"> <!-- Top section containing title and search bar -->
+    <h1 class="app-title">Inventory Management System</h1> <!-- Static title shown across all pages -->
+</div>
+</header>
+<body>
+  <main class="container">
+    {{{body}}} {{!-- Login view injected here --}}
+  </main>
+
+  {{> footer}} <!-- Inserts the footer partial (links, placeholders, future features) -->
+</body>
+</html>

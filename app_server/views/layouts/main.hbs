@@ -33,7 +33,20 @@
   </main>
 
   {{> footer}} <!-- Inserts the footer partial (links, placeholders, future features) -->
+  {{!-- Logout confirmation modal --}}
+<div id="logoutModal" class="logout-modal-backdrop hidden">
+  <div class="logout-modal">
+    <h2>Log out</h2>
+    <p>Are you sure you want to log out?</p>
+    <div class="logout-modal__actions">
+      <button id="confirmLogoutBtn" class="btn btn--small btn--danger">
+        Yes, log out
+      </button>
+      <button id="cancelLogoutBtn" class="btn btn--small btn--outline">
+        No, stay here
+      </button>
+    </div>
+  </div>
+</div>
 </body>
-
 </html>
-

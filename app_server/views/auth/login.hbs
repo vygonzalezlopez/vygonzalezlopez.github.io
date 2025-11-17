@@ -1,0 +1,96 @@
+{{!-- 
+  === View: auth/login.hbs ===
+  Purpose:
+    - Login landing screen.
+    - Left: Welcome and description.
+    - Right: Username/password login form (placeholder behavior).
+    - Below: Temporary login method using users from users.json.
+--}}
+
+<section class="login-page">
+
+  <div class="login-grid">
+    {{!-- Left/center column: Intro text --}}
+    <div class="login-intro">
+      <h1>Welcome to the Inventory Management System for CS-499</h1>
+      <p>
+        This application is a prototype inventory management system designed to help track
+        items, materials, and hardware owned by the department. It demonstrates full-stack
+        design concepts, role-based access, and secure data handling as part of the CS-499
+        Computer Science Capstone.
+      </p>
+    </div>
+
+    {{!-- Right column: Primary login form --}}
+    <div class="login-form">
+      <h2>Sign In</h2>
+
+      <div class="form-group">
+        <label for="usernameInput">Username</label>
+        <input
+          type="text"
+          id="usernameInput"
+          placeholder="Username"
+          autocomplete="off"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="passwordInput">Password</label>
+        <input
+          type="password"
+          id="passwordInput"
+          placeholder="Password"
+        >
+      </div>
+
+      <button id="primaryLoginBtn" class="btn" disabled>Log In</button>
+
+      <div class="login-links">
+        <button type="button" class="link-button" id="forgotUsernameBtn">
+          Forgot username
+        </button>
+        <button type="button" class="link-button" id="forgotPasswordBtn">
+          Forgot password
+        </button>
+      </div>
+
+      <div class="login-links">
+        <button type="button" class="link-button" id="createAccountBtn">
+          Create account
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Temporary login area --}}
+  <section class="login-temp">
+    <h3>This is a temporary login method for testing.</h3>
+
+    <div class="form-group">
+      <label for="userSelect">Select a user</label>
+      <select id="userSelect">
+        <option value="">-- Choose a user --</option>
+        {{#each users}}
+          <option
+            value="{{username}}"
+            data-username="{{username}}"
+            data-password="{{password}}"
+            data-role="{{role}}"
+          >
+            {{firstname}} {{lastname}} ({{role}})
+          </option>
+        {{/each}}
+      </select>
+    </div>
+
+    <div id="selectedUserInfo" class="selected-user-info">
+      {{!-- Populated dynamically by login.js --}}
+    </div>
+
+    <button id="tempLoginBtn" class="btn" disabled>
+      Log In as Selected User
+    </button>
+  </section>
+
+</section>

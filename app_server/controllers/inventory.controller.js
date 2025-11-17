@@ -29,7 +29,7 @@ exports.index = (req, res) => {                                   // Defines the
   
   const user = { name: "Victor", role: "Inventory Clerk" };       // Creates a temporary mock user object (role used for UI logic)
 
-  res.render("index", {                                            // Renders the "index.hbs" view through Handlebars
+  res.render("dashboard/index", {                                            // Renders the "index.hbs" view through Handlebars
     title: "Inventory Management System",                          // Page title injected into the layout's <title> tag
     user,                                                          // Sends the mock user object to the view for display
     roleMessage: "(dynamic messages will be displayed here)",      // Placeholder dynamic message area for future role-driven alerts

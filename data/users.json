@@ -1,0 +1,27 @@
+[
+    { 
+        "firstname" : "John",
+        "lastname" : "Smith", 
+        "username": "admin",
+        "password": "Admin123!",
+        "role": "System Administrator",
+        "securityquestion" : "What state were you born?",
+        "securityAnswer" : "New York"
+    } , { 
+        "firstname" : "John",
+        "lastname" : "Doe", 
+        "username": "clerk1",
+        "password": "Clerk123!",
+        "role": "Inventory Clerk",
+        "securityquestion" : "What state were you born?",
+        "securityAnswer" : "California"
+    } , { 
+        "firstname" : "Michael",
+        "lastname" : "Scott", 
+        "username": "associate1",
+        "password": "Associate123!",
+        "role": "Warehouse Associate",
+        "securityquestion" : "What state were you born?",
+        "securityAnswer" : "Florida"
+    }
+]
