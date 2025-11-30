@@ -1,27 +1,32 @@
 [
-    { 
-        "firstname" : "John",
-        "lastname" : "Smith", 
+    {
+        "firstname": "John",
+        "lastname": "Smith",
         "username": "admin",
         "password": "Admin123!",
         "role": "System Administrator",
-        "securityquestion" : "What state were you born?",
-        "securityAnswer" : "New York"
-    } , { 
-        "firstname" : "John",
-        "lastname" : "Doe", 
+        "securityquestion": "What state were you born?",
+        "securityAnswer": "New York",
+        "passwordHash": "3eb3fe66b31e3b4d10fa70b5cad49c7112294af6ae4e476a1c405155d45aa121"
+    },
+    {
+        "firstname": "John",
+        "lastname": "Doe",
         "username": "clerk1",
         "password": "Clerk123!",
         "role": "Inventory Clerk",
-        "securityquestion" : "What state were you born?",
-        "securityAnswer" : "California"
-    } , { 
-        "firstname" : "Michael",
-        "lastname" : "Scott", 
+        "securityquestion": "What state were you born?",
+        "securityAnswer": "California",
+        "passwordHash": "c197e34a0b4ee802f71cc23efdec77f85d9a5b5092a4632f673d694eeea666a2"
+    },
+    {
+        "firstname": "Michael",
+        "lastname": "Scott",
         "username": "associate1",
         "password": "Associate123!",
         "role": "Warehouse Associate",
-        "securityquestion" : "What state were you born?",
-        "securityAnswer" : "Florida"
+        "securityquestion": "What state were you born?",
+        "securityAnswer": "Florida",
+        "passwordHash": "08e9e64d67ac350811337a9c2183b547ab5a3828d29d1dabddfaafcc11554280"
     }
 ]

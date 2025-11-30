@@ -25,11 +25,19 @@
     <div class="login-form">
       <h2>Sign In</h2>
 
+      {{#if error}}
+        <div class="error-box">
+          <p>{{error}}</p>
+        </div>
+      {{/if}}
+
+    <form id="primaryLoginForm" method="POST" action="/">
       <div class="form-group">
         <label for="usernameInput">Username</label>
         <input
           type="text"
           id="usernameInput"
+          name="username"
           placeholder="Username"
           autocomplete="off"
         >
@@ -40,11 +48,15 @@
         <input
           type="password"
           id="passwordInput"
+          name="password"
           placeholder="Password"
         >
       </div>
 
-      <button id="primaryLoginBtn" class="btn" disabled>Log In</button>
+      <button id="primaryLoginBtn" class="btn" type="submit">
+        Log In
+      </button>
+    </form>
 
       <div class="login-links">
         <button type="button" class="link-button" id="forgotUsernameBtn">

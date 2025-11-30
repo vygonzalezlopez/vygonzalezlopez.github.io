@@ -16,6 +16,9 @@ const pages = require("../controllers/pages.controller");       // Stub pages co
 // Root route → Login page
 router.get("/", auth.login); // Landing page: login screen
 
+// Handle login POST for username/password Sign In
+router.post("/", auth.handleLogin);
+
 // === Main Application Routes ===
 
 // Dashboard (Inventory main view)

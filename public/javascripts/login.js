@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const usernameInput = document.getElementById("usernameInput");
   const passwordInput = document.getElementById("passwordInput");
   const primaryLoginBtn = document.getElementById("primaryLoginBtn");
+  const primaryLoginForm = document.getElementById("primaryLoginForm");
 
   const forgotUsernameBtn = document.getElementById("forgotUsernameBtn");
   const forgotPasswordBtn = document.getElementById("forgotPasswordBtn");
@@ -25,16 +26,20 @@ document.addEventListener("DOMContentLoaded", () => {
     if (usernameInput.value.trim() && passwordInput.value.trim()) {
       primaryLoginBtn.disabled = false;
     } else {
-      primaryLoginBtn.disabled = true;
+      primaryLoginBtn.disabled = false;
     }
   }
 
   usernameInput?.addEventListener("input", updatePrimaryLoginState);
   passwordInput?.addEventListener("input", updatePrimaryLoginState);
 
-  // Placeholder: main login button behavior
-  primaryLoginBtn?.addEventListener("click", () => {
-    alert("Login is a placeholder. Authentication logic will be added later.");
+  // Let the form POST to /login; only block submit if fields are empty
+  primaryLoginForm?.addEventListener("submit", (e) => {
+    if (!usernameInput.value.trim() || !passwordInput.value.trim() && !usernameInput.value.trim() && !passwordInput.value.trim()) {
+      e.preventDefault();
+      alert("Please enter both username and password.");
+    }
+    // Otherwise, the browser submits to /login and the server handles hashing & checking.
   });
 
   // Placeholder links
