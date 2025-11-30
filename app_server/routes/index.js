@@ -19,6 +19,9 @@ router.get("/", auth.login); // Landing page: login screen
 // Handle login POST for username/password Sign In
 router.post("/", auth.handleLogin);
 
+// Handle create account post
+router.post("/create-account", auth.handleCreateAccount);
+
 // === Main Application Routes ===
 
 // Dashboard (Inventory main view)

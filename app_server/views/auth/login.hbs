@@ -31,6 +31,12 @@
         </div>
       {{/if}}
 
+      {{#if success}}
+        <div class="success-box">
+          <p>{{success}}</p>
+        </div>
+      {{/if}}
+
     <form id="primaryLoginForm" method="POST" action="/">
       <div class="form-group">
         <label for="usernameInput">Username</label>
@@ -74,6 +80,66 @@
       </div>
     </div>
   </div>
+
+  <div id="createAccountModal" class="auth-modal-backdrop hidden">
+  <div class="auth-modal">
+    <h2>Create Account</h2>
+    <p class="muted">
+      Fill out the form below to create a new user.
+    </p>
+
+    <form id="createAccountForm" method="POST" action="/create-account">
+      <div class="form-group">
+        <label for="caFirstName">First name</label>
+        <input type="text" id="caFirstName" name="firstname" required>
+      </div>
+
+      <div class="form-group">
+        <label for="caLastName">Last name</label>
+        <input type="text" id="caLastName" name="lastname" required>
+      </div>
+
+      <div class="form-group">
+        <label for="caUsername">Username</label>
+        <input type="text" id="caUsername" name="username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="caPassword">Password</label>
+        <input type="password" id="caPassword" name="password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="caRole">Role</label>
+        <select id="caRole" name="role" required>
+          <option value="">-- Select role --</option>
+          <option value="System Administrator">System Administrator</option>
+          <option value="Inventory Clerk">Inventory Clerk</option>
+          <option value="Warehouse Associate">Warehouse Associate</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Security question</label>
+        <input type="text" value="What state were you born?" disabled>
+      </div>
+
+      <div class="form-group">
+        <label for="caSecurityAnswer">Security answer</label>
+        <input type="text" id="caSecurityAnswer" name="securityAnswer" required>
+      </div>
+
+      <div class="auth-modal__actions">
+        <button type="submit" class="btn btn--small">
+          Submit
+        </button>
+        <button type="button" class="btn btn--small btn--outline" id="cancelCreateAccountBtn">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
 
   {{!-- Temporary login area --}}
   <section class="login-temp">

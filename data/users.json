@@ -28,5 +28,15 @@
         "securityquestion": "What state were you born?",
         "securityAnswer": "Florida",
         "passwordHash": "08e9e64d67ac350811337a9c2183b547ab5a3828d29d1dabddfaafcc11554280"
+    },
+    {
+        "firstname": "Testing3",
+        "lastname": "3rd attempt",
+        "username": "Testing3",
+        "password": "pASSWORD1!",
+        "role": "System Administrator",
+        "securityquestion": "What state were you born?",
+        "securityAnswer": "New Jersey",
+        "passwordHash": "85b98f41cababa55c7105b7502ceea7877307d03eebfb1704ef6b8dd5084b8c5"
     }
 ]

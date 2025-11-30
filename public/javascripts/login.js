@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const forgotUsernameBtn = document.getElementById("forgotUsernameBtn");
   const forgotPasswordBtn = document.getElementById("forgotPasswordBtn");
   const createAccountBtn = document.getElementById("createAccountBtn");
+  const createAccountModal = document.getElementById("createAccountModal");
+  const cancelCreateAccountBtn = document.getElementById("cancelCreateAccountBtn");
 
   const userSelect = document.getElementById("userSelect");
   const selectedUserInfo = document.getElementById("selectedUserInfo");
@@ -51,9 +53,29 @@ document.addEventListener("DOMContentLoaded", () => {
     alert("Forgot password is a placeholder. Recovery flow will be added later.");
   });
 
+  function openCreateAccountModal(){
+    if (createAccountModal) {
+      createAccountModal.classList.remove("hidden");
+    }
+  }
+
+  function closeCreateAccountModal(){
+    if (createAccountModal) {
+      createAccountModal.classList.add("hidden");
+    }
+  }
+
+  // Open modal when "Create account" button is clicked
   createAccountBtn?.addEventListener("click", () => {
-    alert("Create account is a placeholder. Registration flow will be added later.");
+    openCreateAccountModal();
   });
+
+  // Close when Cancel is clicked
+  cancelCreateAccountBtn?.addEventListener("click", () => {
+    closeCreateAccountModal();
+  });
+
+  
 
   // Temporary login: update info box and enable temp login button
   userSelect?.addEventListener("change", () => {
