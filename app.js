@@ -18,7 +18,13 @@ const express = require("express");                // Express framework for rout
 const morgan = require("morgan");                  // HTTP request logger for development
 const { engine } = require("express-handlebars");  // Handlebars templating engine integration
 
+// Database + API
+require("./app_api/models/db");
+const apiRouter = require("./app_api/routes/index");
+
 const app = express();                             // Creates an Express application instance
+
+
 
 
 /* 
@@ -65,6 +71,9 @@ app.use(express.static(path.join(__dirname, "public"))); // Serves static files
 */
 const indexRouter = require("./app_server/routes/index");
 app.use("/", indexRouter);                         // Uses index router for all base routes
+// API routes
+app.use("/api", apiRouter);
+
 
 
 /* 
