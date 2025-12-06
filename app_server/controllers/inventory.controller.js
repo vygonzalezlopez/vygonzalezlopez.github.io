@@ -9,9 +9,17 @@
     - Parsed data is later passed into the index.hbs view via res.render()
     - This simulates the "Model" portion of MVC until the DB layer is built.
 */
-var fs = require('fs');                                  // Imports the built-in Node.js file system module
-var sampleItems = JSON.parse(                            // Parses JSON text into a JavaScript object/array
-    fs.readFileSync('./data/sample-items.json', 'utf8')); // sampleItems now holds the array of inventory objects
+
+const itemsEndpoint = "http://localhost:3000/api/items"; 
+const options = { 
+    method: "GET", 
+    headers: { 
+        Accept: "application/json",
+    }
+}
+//var fs = require('fs');                                  // Imports the built-in Node.js file system module
+//var sampleItems = JSON.parse(                            // Parses JSON text into a JavaScript object/array
+    //fs.readFileSync('./data/sample-items.json', 'utf8')); // sampleItems now holds the array of inventory objects
 
 /* 
   === Controller: index() ===
@@ -25,6 +33,14 @@ var sampleItems = JSON.parse(                            // Parses JSON text int
     - Injects data into index.hbs
     - index.hbs is rendered inside the main layout (main.hbs), which includes header/footer partials
 */
+
+
+
+
+
+
+
+/*
 exports.index = (req, res) => {                                   // Defines the exported controller method for GET /
   
   const user = { name: "Victor", role: "Inventory Clerk" };       // Creates a temporary mock user object (role used for UI logic)
@@ -35,4 +51,33 @@ exports.index = (req, res) => {                                   // Defines the
     roleMessage: "(dynamic messages will be displayed here)",      // Placeholder dynamic message area for future role-driven alerts
     items: sampleItems                                             // Sends parsed inventory data to index.hbs for table rendering
   });                                                              // End of render() call, page is delivered to front-end
+};
+*/
+const item = async function (req, res, next) {
+    //console.log('TRAVEL CONTROLLER BEGIN");
+    await fetch(itemsEndpoint, options)
+        .then(res => res.json())
+        .then(json => {
+            // console.log(json);
+            let message = null;
+            if(!(json instanceof Array)) {
+                message = 'API lookup error';
+                json = [];
+            } else {
+                if(!json.length){
+                    message = 'No items exist in our database!';
+                }
+            }
+            res.render("dashboard/index", { 
+                title: "Inventory Management System", 
+                items: json, 
+                message
+            });
+        })
+        .catch(err => res.status(500).send(err.message));
+    // console.log('TRAVEL CONTROLLER AFTER RENDER')
+};
+
+module.exports = {
+    item,
 };

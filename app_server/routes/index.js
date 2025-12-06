@@ -25,7 +25,7 @@ router.post("/create-account", auth.handleCreateAccount);
 // === Main Application Routes ===
 
 // Dashboard (Inventory main view)
-router.get("/dashboard", inventory.index); // Main inventory dashboard
+router.get("/dashboard", inventory.item); // Main inventory dashboard
 
 // Stub pages for navigation links
 router.get("/reports", pages.reports);
