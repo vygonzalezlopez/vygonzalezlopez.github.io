@@ -6,10 +6,27 @@
 */
 
 const { hashPassword } = require("../utils/password-hasher");
-//const users = require("../../data/users.json");
-var fs = require('fs');                                  // Imports the built-in Node.js file system module
-var sampleUsers = JSON.parse(                            // Parses JSON text into a JavaScript object/array
-    fs.readFileSync('./data/users.json', 'utf8')); // sampleUsers now holds the array of inventory objects
+
+// === Load Users from API for Auth Page ===
+// Purpose:
+//   - Uses the /api/users endpoint to retrieve the user list from MongoDB.
+//   - Feeds this into the login page so the temporary login dropdown is backed by the database.
+const baseApiUrl = "http://localhost:3000/api";
+
+const usersEndpoint = `${baseApiUrl}/users`;           // GET all users
+const usernameEndpoint = `${baseApiUrl}/users`;        // will append /:username
+
+const fetchOptions = {
+  method: "GET",
+  headers: {
+    Accept: "application/json"
+  }
+};
+
+//remove block of code after api is working!!!!!!!!!
+//var fs = require('fs');                                  // Imports the built-in Node.js file system module
+//var sampleUsers = JSON.parse(                            // Parses JSON text into a JavaScript object/array
+    //fs.readFileSync('./data/users.json', 'utf8')); // sampleUsers now holds the array of inventory objects
 
 /*
   === Action: handleCreateAccount ===
@@ -82,68 +99,122 @@ exports.handleCreateAccount = (req, res) => {
 };
 
 // --- Primary login handler for username/password form ---
-exports.handleLogin = (req, res) => {
+exports.handleLogin = async (req, res) => {
   const { username, password } = req.body;
-
-  // Reload users from disk so we always see newly created accounts
-  const raw = fs.readFileSync('./data/users.json', 'utf8');
-  const currentUsers = JSON.parse(raw);
 
   // Basic presence check
   if (!username || !password) {
     return res.render("auth/login", {
       layout: "auth",
       title: "Login - Inventory Management System",
-      users: currentUsers,
+      users,
       error: "Please enter both username and password."
     });
   }
 
-  // Step 1: find user in JSON by username
- 
-  const user = currentUsers.find(u => u.username === username);
+  try {
+    
+    // Step 1: look up user via /api/users/:username
+    const userRes = await fetch(
+      `${usernameEndpoint}/${encodeURIComponent(username)}`,
+      fetchOptions
+    );
 
-  if (!user) {
-    return res.render("auth/login", {
+    if (userRes.status === 404) {
+      return res.render("auth/login", {
+        layout: "auth",
+        title: "Login - Inventory Management System",
+        users: [],
+        error: "No account found. Please verify your username."
+      });
+    }
+
+    if (!userRes.ok) {
+      throw new Error(`API error: ${userRes.status}`);
+    }
+
+    // IMPORTANT: /api/users/:username returns an ARRAY, not a single object
+    const data = await userRes.json();
+
+    if (!Array.isArray(data) || data.length === 0) {
+      return res.render("auth/login", {
+        layout: "auth",
+        title: "Login - Inventory Management System",
+        users: [],
+        error: "No account found. Please verify your username."
+      });
+    }
+
+    const user = data[0]; 
+
+    // Step 2: normalize + hash incoming password
+    const cleanedPassword = password.trim();        // avoid trailing/leading-space issues
+    const attemptedHash = hashPassword(cleanedPassword);
+
+    // Step 3: compare with stored hash
+    if (attemptedHash !== user.passwordHash) {
+      return res.render("auth/login", {
+        layout: "auth",
+        title: "Login - Inventory Management System",
+        users,
+        error: "Incorrect password." 
+      });
+    }
+
+    //  SUCCESS — later this is where session/role logic would live
+    return res.redirect("/dashboard");
+  } catch (err) {
+    console.error("Login error:", err);
+    return res.status(500).render("auth/login", {
       layout: "auth",
       title: "Login - Inventory Management System",
-      users: currentUsers,
-      error: "No account found. Please verify your username."
+      users,
+      error: "An error occurred while logging in."
     });
   }
-
-  // Step 2: hash incoming password
-  const attemptedHash = hashPassword(password);
-
-  // Step 3: compare with stored hash
-  if (attemptedHash !== user.passwordHash) {
-    return res.render("auth/login", {
-      layout: "auth",
-      title: "Login - Inventory Management System",
-      users: currentUsers,
-      error: "Incorrect password."
-    });
-  }
-
-  // SUCCESS — later this is where session/role logic would live
-  return res.redirect("/dashboard");
 };
 
 /*
   === Action: login ===
   Purpose:
     - Handles GET "/" requests.
+    - Calls /api/users to load the user list from the database.
     - Renders the login view using the "auth" layout (no header/footer).
-    - Passes the user list to the view for the temporary login dropdown.
+    - Provides the users array for the temporary login dropdown.
 */
-exports.login = (req, res) => {
+
+
+exports.login = async (req, res) => {
   const created = req.query.created === "1";
 
-  res.render("auth/login", {
-    layout: "auth", // Use auth.hbs instead of main.hbs
-    title: "Login - Inventory Management System",
-    users: sampleUsers,
-    success: created ? "Account created successfully. You can now log in." : null
-  });
+  await fetch(usersEndpoint, fetchOptions)
+    .then(apiRes => apiRes.json())
+    .then(json => {
+      let message = null;
+
+      if (!(json instanceof Array)) {
+        message = "API lookup error";
+        json = [];
+      } else if (!json.length) {
+        message = "No users exist in our database!";
+      }
+
+      res.render("auth/login", {
+        layout: "auth",
+        title: "Login - Inventory Management System",
+        users: json,                                      // now from DB, not users.json
+        success: created ? "Account created successfully. You can now log in." : null,
+        message                                           // optional message for debugging/UX
+      });
+    })
+    .catch(err => {
+      console.error("Error loading users from API:", err);
+      res.status(500).render("auth/login", {
+        layout: "auth",
+        title: "Login - Inventory Management System",
+        users: [],
+        error: "Error loading users from database."
+      });
+    });
 };
 
