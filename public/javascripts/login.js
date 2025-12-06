@@ -90,11 +90,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const username = option.dataset.username;
     const password = option.dataset.password;
     const role = option.dataset.role;
+    const passwordHash = option.dataset.passwordHash;
 
     selectedUserInfo.innerHTML = `
       <p><strong>Username:</strong> ${username}</p>
       <p><strong>Password:</strong> ${password}</p>
       <p><strong>Role:</strong> ${role}</p>
+      <p><strong>PasswordHash:</strong> ${passwordHash}</p>
     `;
 
     tempLoginBtn.disabled = false;

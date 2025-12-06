@@ -143,7 +143,7 @@
 
   {{!-- Temporary login area --}}
   <section class="login-temp">
-    <h3>This is a temporary login method for testing.</h3>
+    <h3>Please use this function to identify username and passwords.</h3>
 
     <div class="form-group">
       <label for="userSelect">Select a user</label>
@@ -154,6 +154,7 @@
             value="{{username}}"
             data-username="{{username}}"
             data-password="{{password}}"
+            data-password-hash="{{passwordHash}}" 
             data-role="{{role}}"
           >
             {{firstname}} {{lastname}} ({{role}})

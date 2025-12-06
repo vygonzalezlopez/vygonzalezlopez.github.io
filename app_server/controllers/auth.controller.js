@@ -22,6 +22,16 @@ const fetchOptions = {
     Accept: "application/json"
   }
 };
+function postOptions(payload) {
+  return {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json"
+  },
+    body: JSON.stringify(payload)
+  };
+}
 
 //remove block of code after api is working!!!!!!!!!
 //var fs = require('fs');                                  // Imports the built-in Node.js file system module
@@ -35,7 +45,7 @@ const fetchOptions = {
     - Validates input, checks for duplicate username, hashes the password,
       and appends the new user to users.json using the agreed structure.
 */
-exports.handleCreateAccount = (req, res) => {
+exports.handleCreateAccount = async (req, res) => {
   const {
     firstname,
     lastname,
@@ -47,30 +57,37 @@ exports.handleCreateAccount = (req, res) => {
 
   const securityquestion = "What state were you born?";
 
-  // Reload users from disk to ensure we have the latest version
-  const raw = fs.readFileSync('./data/users.json', 'utf8');
-  const currentUsers = JSON.parse(raw);
 
-  // Basic presence check
+  // Basic presence validation
   if (!firstname || !lastname || !username || !password || !role || !securityAnswer) {
     return res.render("auth/login", {
       layout: "auth",
       title: "Login - Inventory Management System",
-      users: currentUsers,
       error: "All fields are required to create an account."
     });
   }
 
-  // Check if username already exists
-  const existing = currentUsers.find(u => u.username === username);
-  if (existing) {
-    return res.render("auth/login", {
-      layout: "auth",
-      title: "Login - Inventory Management System",
-      users: currentUsers,
-      error: "Username already exists. Please choose a different one."
-    });
-  }
+  try{
+  //Check if username already exists via /api/users/:username
+  const checkRes = await fetch(
+    `${usernameEndpoint}/${encodeURIComponent(username)}`,
+      fetchOptions
+    );
+
+    if (checkRes.status === 200) {
+      // Parse response; your API returns an ARRAY
+      const existingData = await checkRes.json();
+      if (Array.isArray(existingData) && existingData.length > 0) {
+        return res.render("auth/login", {
+          layout: "auth",
+          title: "Login - Inventory Management System",
+          error: "Username already exists. Please choose a different one."
+        });
+      }
+    } else if (checkRes.status !== 404) {
+      // Some other error from the API
+      throw new Error(`Username check failed: ${checkRes.status}`);
+    }
 
   // Hash the password
   const passwordHash = hashPassword(password);
@@ -87,15 +104,29 @@ exports.handleCreateAccount = (req, res) => {
     passwordHash
   };
 
-  // Append and save
-  currentUsers.push(newUser);
-  fs.writeFileSync('./data/users.json', JSON.stringify(currentUsers, null, 4));
+  // Post to database API
+  const createRes = await fetch(
+    usernameEndpoint,
+    postOptions(newUser)
+  );
 
-  // Keep sampleUsers in sync for dropdown usage
-  sampleUsers = currentUsers;
+     if (!createRes.ok) {
+      const errJson = await createRes.json().catch(() => ({}));
+      throw new Error(`Create failed: ${createRes.status} ${JSON.stringify(errJson)}`);
+    }
 
-  // Redirect back to "/" with a flag so we can show a success message
-  return res.redirect("/?created=1");
+    // --- 5️⃣ Redirect back to login page with success flag ---
+    return res.redirect("/?created=1");
+
+  } catch (err) {
+    console.error("Create user error:", err);
+
+    return res.render("auth/login", {
+      layout: "auth",
+      title: "Login - Inventory Management System",
+      error: "There was a problem creating your account. Please try again."
+    });
+  }
 };
 
 // --- Primary login handler for username/password form ---

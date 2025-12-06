@@ -27,23 +27,29 @@ const usersList = async(req, res) => {
 
 // Get: /users/:username = lists single record based off username
 const getUserByUsername = async(req, res) => {
+     try {
     const q = await Model
-        .find({'username' : req.params.username }) // Return single record
-        .exec();
+      .find({ username: req.params.username })
+      .exec();
 
-        // Uncomment the following line to show results of query on the console
-        // console.log(q);
-
-    if(!q)
-    { // Database returned no data
-        return res
-            .status(404)
-            .json(err);            
-    } else { // Return resulting trip list
-        return res
-            .status(200)
-            .json(q);
+    // If no matches, q will be an empty array []
+    if (!q || q.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "User not found" });
     }
+
+    // Otherwise, return the array with a single user
+    return res
+      .status(200)
+      .json(q);
+
+  } catch (err) {
+    console.error("getUserByUsername error:", err);
+    return res
+      .status(500)
+      .json({ message: "Server error", error: err.message });
+  }
 };
 
 // Post: /users : creates new user record
