@@ -6,6 +6,10 @@ College: SNHU
 
 Program: B.S. Computer Science
 
+## 1. Professional Self-Assessment
+[Short intro about you, your background, your goals, and summary of skills:
+collaboration, communication, algorithms/DS, software engineering, databases, security.]
+
 ## 2. Navigation
 - [Professional Self-Assessment](#1-professional-self-assessment)
 - [Artifact Overview](#3-artifact-overview-inventory-management-system)
