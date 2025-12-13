@@ -60,7 +60,8 @@ Short description of what’s in the video:
   This enhancement focused on redesigning the original Android-based inventory application into a full-stack web application using Node.js, Express, and Handlebars while applying modern software engineering principles. The application was restructured using an MVC architecture to clearly separate routing, business logic, and presentation layers. A consistent UI was implemented through shared Handlebars layouts and partials for headers, footers, and navigation, along with a dedicated authentication layout for the login experience. Additional features such as a role-aware dashboard interface, dynamic inventory table structure, and modal-based logout confirmation improved usability and maintainability. Overall, this enhancement emphasized clean architecture, modular design, and scalability to better align the application with professional, enterprise-level development standards.
 
 ### 5.2 Original vs Enhanced (Software Design & Engineering)
-- **Original:** Android app with activities, adapters, and SQLite helpers tightly coupled.
+- **Original:**
+  - Android app with activities, adapters, and SQLite helpers tightly coupled.
 - **Enhanced:** Web MVC separation:
   - `app.js` (Express setup)
   - `app_server/controllers/*.js`
@@ -88,16 +89,16 @@ Short description of what’s in the video:
 
 ### 6.2 Original vs Enhanced (Algorithms and Data Structures)
 - **Original:**
-- Plaintext password handling stored directly in SQL database.
-- Minimal conditional logic for authentication
-- No structured validation or differentiation between authentication failures
+  - Plaintext password handling stored directly in SQL database.
+  - Minimal conditional logic for authentication
+  - No structured validation or differentiation between authentication failures
 - **Enhanced:**
-- SHA-256 password hashing utility
-- Compare hashed input vs stored `passwordHash`
-- Differentiate:
-  - “No account found”
-  - “Incorrect password”
-- Temporary login dropdown using selected user info
+  - SHA-256 password hashing utility
+  - Compare hashed input vs stored `passwordHash`
+  - Differentiate:
+    - “No account found”
+    - “Incorrect password”
+  - Temporary login dropdown using selected user info
 
 ### 6.3 Narrative
 This enhancement builds on the Inventory Management System originally developed in CS-360 as an Android application and reimplemented during the capstone as a full-stack Node.js and Handlebars web application. The focus of this milestone was strengthening the system’s authentication logic by introducing structured algorithms for credential handling and validation. During Module Four, the application was enhanced with SHA-256 password hashing, deterministic hash comparison routines, and controlled branching logic to manage login success and failure states. These changes transformed authentication from a basic form submission into a deliberate, algorithm-driven workflow that mirrors real-world system behavior.
@@ -115,7 +116,7 @@ Enhancing this portion of the system reinforced how much complexity exists benea
 ## 7. Enhancement 3 – Databases
 
 ### 7.1 Description of Enhancement
-[Describe JSON → MongoDB migration, schema definitions, APIs, and integration with the UI.]
+This enhancement migrated the inventory application from file-based JSON storage to a MongoDB database using Mongoose, introducing a persistent and scalable data layer. User and inventory schemas were defined to formalize data structure and enforce consistency, and RESTful APIs were implemented to support create, read, update, and lookup operations for both users and inventory items. These APIs were tested using Postman and MongoDB Compass to validate schema integrity, data persistence, and query behavior. The application was then integrated with the database layer using fetch calls, allowing the authentication workflow and dashboard inventory table to dynamically load data from the database instead of static files, completing the transition to a full-stack architecture.
 
 ### 7.2 Database & API Architecture
 - MongoDB + Mongoose connection: `app_api/models/db.js`
@@ -123,16 +124,19 @@ Enhancing this portion of the system reinforced how much complexity exists benea
 - Item schema & model: `app_api/models/item.js`
 - Seed scripts: `seedUsers.js`, `seedItems.js`
 - REST APIs:
-  - `GET /api/users`, `GET /api/users/:username`, `POST /api/users`, etc.
-  - `GET /api/items`, `POST /api/items`, etc.
+  - `GET /api/users`, `GET /api/users/:username`, `POST /api/users`, `PUT /api/users/:username`, `DELETE /api/users/:username`
+  - `GET /api/items`, `GET /api/items/:id`
 
 ### 7.3 Narrative
-[Paste/modify the database narrative we just wrote:
-seeding, API testing with Postman, verification in MongoDB Compass, challenges with error handling and result shapes, etc.]
+The database component of this project originated as a lightweight JSON-based storage mechanism used in the original CS-360 Android inventory application. While effective for early prototyping, this approach was not scalable or representative of modern backend systems. As part of the capstone enhancement, the data layer was fully migrated to MongoDB using Mongoose, transforming the artifact into a production-aligned backend with defined schemas, structured collections, and RESTful API endpoints. The enhanced system now supports persistent data storage, real-time queries, and secure user authentication workflows driven entirely by the database rather than static files.
 
-### 7.4 Evidence of Testing
-- API tested with **Postman**
-- Database verified with **MongoDB Compass**
+This enhancement was selected for inclusion in the ePortfolio because it demonstrates core competencies required in full-stack and backend development. Key components include Mongoose schemas for users and inventory items, API controllers for CRUD operations, routing logic, and database seeding utilities that populate collections from existing datasets. Functionality was validated through Postman by exercising each endpoint and through MongoDB Compass to verify schema structure, document integrity, and query results. Compared to the original implementation, the artifact now supports database-driven authentication, secure password hashing, dynamic inventory retrieval, and consistent updates across the application; elevating it from a prototype to a realistic enterprise-style system.
+
+Enhancing this artifact required re-architecting parts of the application to integrate asynchronous database operations and API-driven logic. One of the primary challenges involved handling API response shapes correctly, particularly when queries returned arrays instead of single objects, and distinguishing between valid “not found” conditions and true errors. Additional care was required to ensure password hashes were stored and compared correctly during authentication. Working through these challenges strengthened my understanding of backend system design, error handling, and data consistency across layers. Overall, this enhancement demonstrates my ability to design secure, scalable database solutions using industry-standard tools; skills that directly align with my career focus in cybersecurity and C5I system development.
+
+### 7.4 Related Artifacts
+- [Link to original artifact](https://github.com/vygonzalezlopez/CS-360-Mobile-Architecture-Programming.git)
+- [Link to enhanced code folder](https://github.com/vygonzalezlopez/vygonzalezlopez.github.io/tree/module5_sprint4)
 
 ---
 
