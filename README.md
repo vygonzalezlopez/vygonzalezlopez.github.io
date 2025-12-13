@@ -49,4 +49,102 @@ Short description of what’s in the video:
 
 ---
 
+## 5. Enhancement 1 – Software Design & Engineering
+
+### 5.1 Description of Enhancement
+[Short summary of what changed: Android → Node/Express app, MVC, Handlebars layout/partials, login page, dashboard UI, logout modal, etc.]
+
+### 5.2 Original vs Enhanced
+- **Original:** Android app with activities, adapters, and SQLite helpers tightly coupled.
+- **Enhanced:** Web MVC separation:
+  - `app.js` (Express setup)
+  - `app_server/controllers/*.js`
+  - `app_server/routes/*.js`
+  - `views/layouts/main.hbs`, `partials/header.hbs`, `partials/footer.hbs`
+  - `public/css/styles.css`, `public/javascripts/main.js`
+
+### 5.3 Narrative
+[Paste/adapt the Software Engineering narrative we already wrote:
+why you chose it, how it improved structure, UX, maintainability, how it shows your skills.]
+
+### 5.4 Related Artifacts
+- [Link to original branch/tag or folder](<link>)
+- [Link to enhanced code folder](<link>)
+
+---
+
+## 6. Enhancement 2 – Algorithms and Data Structures
+
+### 6.1 Description of Enhancement
+[Describe the password hashing, login flow, SHA-256 utility, validation, branch logic, error messages.]
+
+### 6.2 Key Logic Implemented
+- SHA-256 password hashing utility
+- Compare hashed input vs stored `passwordHash`
+- Differentiate:
+  - “No account found”
+  - “Incorrect password”
+- Temporary login dropdown using selected user info
+
+### 6.3 Narrative
+[Paste/adapt your Algorithms & DS narrative:
+what you implemented, what you learned, challenges (hashing, API responses, error handling).]
+
+### 6.4 Related Files
+- `utils/password-hasher.js`
+- `app_server/controllers/auth.controller.js`
+- `public/javascripts/login.js`
+
+---
+
+## 7. Enhancement 3 – Databases
+
+### 7.1 Description of Enhancement
+[Describe JSON → MongoDB migration, schema definitions, APIs, and integration with the UI.]
+
+### 7.2 Database & API Architecture
+- MongoDB + Mongoose connection: `app_api/models/db.js`
+- User schema & model: `app_api/models/user.js`
+- Item schema & model: `app_api/models/item.js`
+- Seed scripts: `seedUsers.js`, `seedItems.js`
+- REST APIs:
+  - `GET /api/users`, `GET /api/users/:username`, `POST /api/users`, etc.
+  - `GET /api/items`, `POST /api/items`, etc.
+
+### 7.3 Narrative
+[Paste/modify the database narrative we just wrote:
+seeding, API testing with Postman, verification in MongoDB Compass, challenges with error handling and result shapes, etc.]
+
+### 7.4 Evidence of Testing
+- API tested with **Postman**
+- Database verified with **MongoDB Compass**
+
+---
+
+## 8. Course Outcomes Mapping
+
+Simple table that shows your instructor, “Yes, I covered all 5.”
+
+| Course Outcome | How It’s Demonstrated in This Portfolio |
+|----------------|------------------------------------------|
+| **1. Collaboration / decision support** | Planning and executing enhancements in phases (sprints), documenting design decisions, and organizing the codebase so it could be easily understood and maintained by a team. |
+| **2. Professional communication** | Code review video, written narratives, structured README/ePortfolio layout, and clear inline documentation. |
+| **3. Algorithms & data structures** | Password hashing logic, authentication flow, search/filter placeholders, structured handling of user and item data. |
+| **4. Software engineering / tools** | Migration to full-stack Node/Express app, MVC structure, Mongoose, REST APIs, use of Git, GitHub, Postman, and Compass. |
+| **5. Security mindset** | SHA-256 password hashing, avoiding plaintext-only auth, validation steps, thinking about limiting access to user data APIs, and planning for future hardening. |
+
+---
+
+## 9. Contact / About Me
+
+Short, clean block:
+
+- **Name:** Victor Gonzalez  
+- **Location:** U.S. Coast Guard – IT / Cyber professional  
+- **Focused Areas:** Cybersecurity, C5I systems, full-stack development  
+- **GitHub:** `<your GitHub link>`  
+- **LinkedIn (if you want):** `<link>`  
+
+---
+
 
