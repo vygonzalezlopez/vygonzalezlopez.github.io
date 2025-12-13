@@ -2,13 +2,20 @@
 
 Author: Victor Y. Gonzalez Lopez
 
-College: SNHU
+College: Southern New Hampshire University
 
 Program: B.S. Computer Science
 
 ## 1. Professional Self-Assessment
-[Short intro about you, your background, your goals, and summary of skills:
-collaboration, communication, algorithms/DS, software engineering, databases, security.]
+Completing the Computer Science program and developing this ePortfolio has allowed me to clearly articulate and demonstrate the technical depth, leadership skills, and security-focused mindset I have developed throughout my academic and professional career. The coursework reinforced core computer science concepts while providing opportunities to apply them in realistic, hands-on projects. Through the capstone, I was able to consolidate those experiences into a cohesive body of work that reflects not only my technical ability, but also my growth as a problem solver and future leader in cyber and information systems.
+
+Throughout the program, collaboration and communication were emphasized as essential components of successful system design. While many projects were completed individually, they were structured to simulate professional environments where code readability, documentation, and stakeholder awareness are critical. My professional experience in the U.S. Coast Guard further strengthened these skills, as I routinely work with senior leadership, cybersecurity teams, and end users to translate technical requirements into operational solutions. This background influenced how I approached my capstone artifact; prioritizing clarity, maintainability, and decision-support capabilities rather than isolated technical features.
+
+From a technical standpoint, the program reinforced my understanding of data structures and algorithms, software engineering, databases, and security as interconnected disciplines rather than isolated topics. In this capstone, I applied algorithmic principles through authentication logic, password hashing, input validation, and structured data handling. I demonstrated software engineering best practices by designing a modular, MVC-based full-stack application using Node.js, Express, and Handlebars. Database concepts were implemented through MongoDB and Mongoose, including schema design, RESTful APIs, and secure data persistence. Security considerations were integrated throughout the project, reflecting both academic instruction and real-world experience; particularly in protecting credentials, minimizing data exposure, and anticipating misuse or attack vectors.
+
+The artifacts included in this ePortfolio are intentionally connected and build upon one another to demonstrate growth across the Computer Science program. The original inventory application served as a foundation, while each enhancement, software design, algorithms and data structures, and databases, represents a deliberate step toward a production-ready system. Together, they illustrate my ability to evolve a project from a functional prototype into a scalable, secure, and professionally engineered solution. This progression mirrors the type of work required in cyber operations and C5I environments, where systems must be reliable, auditable, and adaptable to mission needs.
+
+Overall, this ePortfolio reflects my readiness to contribute as a computer science professional with a strong emphasis on cybersecurity and systems engineering. Combined with my Coast Guard experience, leadership roles, and certifications such as CISSP, CISM, CISA, and Security+, this work demonstrates both technical competence and the ability to operate effectively in high-stakes, mission-critical environments. The artifacts that follow provide concrete evidence of these skills and serve as a representation of the standards I will continue to uphold as I progress toward commissioning and advanced leadership roles in cyber and information systems.
 
 ---
 
