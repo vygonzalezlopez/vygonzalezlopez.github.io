@@ -1,4 +1,4 @@
-# CS 499 Computer Science Captstone
+# CS 499 Computer Science Capstone
 
 Author: Victor Y. Gonzalez Lopez
 
