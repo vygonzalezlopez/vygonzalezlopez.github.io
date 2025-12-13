@@ -1,7 +1,9 @@
 # CS 499 Computer Science Captstone
 
 Author: Victor Y. Gonzalez Lopez
+
 College: SNHU
+
 Program: B.S. Computer Science
 
 ## 2. Navigation
