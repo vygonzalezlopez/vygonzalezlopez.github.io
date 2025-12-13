@@ -47,8 +47,7 @@ Program: B.S. Computer Science
 
 ## 4. Code Review Video
 
-Short description of what’s in the video:
-> This informal code review walks through the original CS-360 inventory app, identifies areas for improvement in software design, algorithms, and data handling, and outlines the enhancement plan executed in this capstone.
+This informal code review consists of a short video series that walks through the original CS-360 Inventory Management application prior to enhancement. The review demonstrates the application’s core functionality by running and testing its features, followed by a high-level walkthrough of the codebase. During the review, key areas for improvement are identified, including repeated logic, inconsistent naming conventions, limited input validation, poor file and folder organization, and tightly coupled components. The videos then outline a clear enhancement plan focused on improving software design, algorithmic logic, and data handling; each of which was implemented during this capstone to transform the original mobile application into a scalable, full-stack system.
 
 - **Video Link:** [Watch Code Review](https://www.youtube.com/playlist?list=PLBZlxNACkNPJbpW099KRJm9iqlLvW59gq)
 
