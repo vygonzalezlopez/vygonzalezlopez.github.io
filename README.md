@@ -36,8 +36,7 @@ Overall, this ePortfolio reflects my readiness to contribute as a computer scien
 - **Original Course:** CS 360 – Mobile Architecture and Programming  
 - **Original Form:** Android mobile app with SQLite backend and role-based inventory management  
 - **Enhanced Form:** Full-stack Node.js/Express/Handlebars web app with MongoDB and REST APIs  
-- **Repo Link:** [GitHub Repository](<your-repo-link-here>)
-- **Live Demo (optional):** [GitHub Pages / Render / etc.]
+- **Repo Link:** [GitHub Repository](https://github.com/vygonzalezlopez/CS-360-Mobile-Architecture-Programming.git)
 
 Brief paragraph describing:
 
