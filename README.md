@@ -27,7 +27,6 @@ Program: B.S. Computer Science
 - [Enhancement 2 – Algorithms--data-structures](#6-enhancement-2-algorithms-and-data-structures)
 - [Enhancement 3 – Databases](#7-enhancement-3-databases)
 - [Course Outcomes Mapping](#8-course-outcomes-mapping)
-- [Contact / About Me](#9-contact--about-me)
 
 ---
 
@@ -37,7 +36,7 @@ Program: B.S. Computer Science
 - **Original Form:** Android mobile app with SQLite backend and role-based inventory management  
 - **Enhanced Form:** Full-stack Node.js/Express/Handlebars web app with MongoDB and REST APIs  
 - **Repo Link:** [GitHub Repository](https://github.com/vygonzalezlopez/CS-360-Mobile-Architecture-Programming.git)
-
+  
   The original Inventory Management System was developed during CS 360 – Mobile Architecture and Programming as an Android application built in Android Studio. The application was designed to manage organizational inventory using a role-based access control model, supporting three distinct user roles: System Administrator, Inventory Clerk, and Warehouse Associate. Each role was granted different levels of access and functionality, such as managing inventory records, adjusting quantities, or viewing inventory data. The application used a local SQLite database for data persistence and followed structured validation and authentication logic to ensure proper access and data integrity within the mobile environment.
 
   This artifact was selected for enhancement because it provided a strong foundation for demonstrating growth across multiple areas of computer science. Transforming the original mobile application into a full-stack web-based system required re-architecting the solution using modern software engineering principles. The enhanced version now leverages a Node.js and Express backend, Handlebars for server-side rendering, MongoDB for data persistence, and RESTful APIs to support authentication and inventory management. This transformation showcases my ability to plan, design, and implement scalable systems while maintaining role-based security, structured data handling, and clean separation of concerns.
@@ -60,7 +59,7 @@ Short description of what’s in the video:
 ### 5.1 Description of Enhancement
   This enhancement focused on redesigning the original Android-based inventory application into a full-stack web application using Node.js, Express, and Handlebars while applying modern software engineering principles. The application was restructured using an MVC architecture to clearly separate routing, business logic, and presentation layers. A consistent UI was implemented through shared Handlebars layouts and partials for headers, footers, and navigation, along with a dedicated authentication layout for the login experience. Additional features such as a role-aware dashboard interface, dynamic inventory table structure, and modal-based logout confirmation improved usability and maintainability. Overall, this enhancement emphasized clean architecture, modular design, and scalability to better align the application with professional, enterprise-level development standards.
 
-### 5.2 Original vs Enhanced
+### 5.2 Original vs Enhanced (Software Design & Engineering)
 - **Original:** Android app with activities, adapters, and SQLite helpers tightly coupled.
 - **Enhanced:** Web MVC separation:
   - `app.js` (Express setup)
@@ -85,9 +84,14 @@ Short description of what’s in the video:
 ## 6. Enhancement 2 – Algorithms and Data Structures
 
 ### 6.1 Description of Enhancement
-[Describe the password hashing, login flow, SHA-256 utility, validation, branch logic, error messages.]
+  This enhancement focused on strengthening the application’s authentication logic by introducing structured algorithms for user validation and secure credential handling. A reusable SHA-256 password hashing utility was implemented to ensure passwords are never compared or stored in plain text, and the login workflow was redesigned to follow a clear decision-based flow: validating input, querying for a matching username, hashing the provided password, and comparing hashes to determine access. Additional branching logic was added to handle edge cases such as missing credentials, non-existent users, and incorrect passwords, with explicit error messaging returned to the user. These improvements replaced ad hoc conditional logic with a more deterministic, secure, and maintainable authentication process aligned with real-world software practices.
 
-### 6.2 Key Logic Implemented
+### 6.2 Original vs Enhanced (Algorithms and Data Structures)
+- **Original:**
+- Plaintext password handling stored directly in SQL database.
+- Minimal conditional logic for authentication
+- No structured validation or differentiation between authentication failures
+- **Enhanced:**
 - SHA-256 password hashing utility
 - Compare hashed input vs stored `passwordHash`
 - Differentiate:
@@ -96,13 +100,15 @@ Short description of what’s in the video:
 - Temporary login dropdown using selected user info
 
 ### 6.3 Narrative
-[Paste/adapt your Algorithms & DS narrative:
-what you implemented, what you learned, challenges (hashing, API responses, error handling).]
+This enhancement builds on the Inventory Management System originally developed in CS-360 as an Android application and reimplemented during the capstone as a full-stack Node.js and Handlebars web application. The focus of this milestone was strengthening the system’s authentication logic by introducing structured algorithms for credential handling and validation. During Module Four, the application was enhanced with SHA-256 password hashing, deterministic hash comparison routines, and controlled branching logic to manage login success and failure states. These changes transformed authentication from a basic form submission into a deliberate, algorithm-driven workflow that mirrors real-world system behavior.
 
-### 6.4 Related Files
-- `utils/password-hasher.js`
-- `app_server/controllers/auth.controller.js`
-- `public/javascripts/login.js`
+The artifact was selected for inclusion because it demonstrates practical algorithmic thinking applied to a core system function. Password hashing, duplicate username detection, and structured account-creation logic required careful consideration of data flow, state management, and error handling. Even while temporarily using JSON-based storage, the system enforces constraints such as input validation, uniqueness checks, and secure credential comparison. These improvements highlight the ability to design algorithms that operate on persistent data, manage conditional execution paths, and preserve system integrity; skills that directly translate to database-backed environments.
+
+Enhancing this portion of the system reinforced how much complexity exists beneath seemingly simple features like login and account creation. A key challenge involved ensuring consistency between in-memory data and persisted records, especially when new users were created dynamically. Working through these issues strengthened my understanding of authentication workflows, hashing pipelines, and edge-case handling, while also preparing the application for its next evolution into a database-driven architecture. Overall, this enhancement demonstrates growth in applying algorithmic principles to real application logic while maintaining a security-conscious design mindset.
+
+### 6.4 Related Artifacts
+- [Link to original artifact](https://github.com/vygonzalezlopez/CS-360-Mobile-Architecture-Programming.git)
+- [Link to enhanced code folder](https://github.com/vygonzalezlopez/vygonzalezlopez.github.io/tree/module4_sprint2)
 
 ---
 
@@ -132,8 +138,6 @@ seeding, API testing with Postman, verification in MongoDB Compass, challenges w
 
 ## 8. Course Outcomes Mapping
 
-Simple table that shows your instructor, “Yes, I covered all 5.”
-
 | Course Outcome | How It’s Demonstrated in This Portfolio |
 |----------------|------------------------------------------|
 | **1. Collaboration / decision support** | Planning and executing enhancements in phases (sprints), documenting design decisions, and organizing the codebase so it could be easily understood and maintained by a team. |
@@ -144,16 +148,5 @@ Simple table that shows your instructor, “Yes, I covered all 5.”
 
 ---
 
-## 9. Contact / About Me
-
-Short, clean block:
-
-- **Name:** Victor Gonzalez  
-- **Location:** U.S. Coast Guard – IT / Cyber professional  
-- **Focused Areas:** Cybersecurity, C5I systems, full-stack development  
-- **GitHub:** `<your GitHub link>`  
-- **LinkedIn (if you want):** `<link>`  
-
----
 
 
