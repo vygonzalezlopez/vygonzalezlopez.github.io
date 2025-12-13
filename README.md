@@ -10,6 +10,8 @@ Program: B.S. Computer Science
 [Short intro about you, your background, your goals, and summary of skills:
 collaboration, communication, algorithms/DS, software engineering, databases, security.]
 
+---
+
 ## 2. Navigation
 - [Professional Self-Assessment](#1-professional-self-assessment)
 - [Artifact Overview](#3-artifact-overview-inventory-management-system)
@@ -20,5 +22,22 @@ collaboration, communication, algorithms/DS, software engineering, databases, se
 - [Course Outcomes Mapping](#8-course-outcomes-mapping)
 - [Contact / About Me](#9-contact--about-me)
 
+---
+
+## 3. Artifact Overview – Inventory Management System
+
+- **Original Course:** CS 360 – Mobile Architecture and Programming  
+- **Original Form:** Android mobile app with SQLite backend and role-based inventory management  
+- **Enhanced Form:** Full-stack Node.js/Express/Handlebars web app with MongoDB and REST APIs  
+- **Repo Link:** [GitHub Repository](<your-repo-link-here>)
+- **Live Demo (optional):** [GitHub Pages / Render / etc.]
+
+Brief paragraph describing:
+
+- what the inventory app does
+- roles (admin, clerk, associate)
+- why it’s a strong representation of your skills.
+
+---
 
 
