@@ -40,4 +40,13 @@ Brief paragraph describing:
 
 ---
 
+## 4. Code Review Video
+
+Short description of what’s in the video:
+> This informal code review walks through the original CS-360 inventory app, identifies areas for improvement in software design, algorithms, and data handling, and outlines the enhancement plan executed in this capstone.
+
+- **Video Link:** [Watch Code Review](https://www.youtube.com/playlist?list=PLBZlxNACkNPJbpW099KRJm9iqlLvW59gq)
+
+---
+
 
