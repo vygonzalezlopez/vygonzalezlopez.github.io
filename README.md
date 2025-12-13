@@ -38,11 +38,11 @@ Overall, this ePortfolio reflects my readiness to contribute as a computer scien
 - **Enhanced Form:** Full-stack Node.js/Express/Handlebars web app with MongoDB and REST APIs  
 - **Repo Link:** [GitHub Repository](https://github.com/vygonzalezlopez/CS-360-Mobile-Architecture-Programming.git)
 
-Brief paragraph describing:
+The original Inventory Management System was developed during CS 360 – Mobile Architecture and Programming as an Android application built in Android Studio. The application was designed to manage organizational inventory using a role-based access control model, supporting three distinct user roles: System Administrator, Inventory Clerk, and Warehouse Associate. Each role was granted different levels of access and functionality, such as managing inventory records, adjusting quantities, or viewing inventory data. The application used a local SQLite database for data persistence and followed structured validation and authentication logic to ensure proper access and data integrity within the mobile environment.
 
-- what the inventory app does
-- roles (admin, clerk, associate)
-- why it’s a strong representation of your skills.
+This artifact was selected for enhancement because it provided a strong foundation for demonstrating growth across multiple areas of computer science. Transforming the original mobile application into a full-stack web-based system required re-architecting the solution using modern software engineering principles. The enhanced version now leverages a Node.js and Express backend, Handlebars for server-side rendering, MongoDB for data persistence, and RESTful APIs to support authentication and inventory management. This transformation showcases my ability to plan, design, and implement scalable systems while maintaining role-based security, structured data handling, and clean separation of concerns.
+
+By evolving this application from a standalone mobile solution into a database-driven, full-stack platform, the artifact demonstrates proficiency in software design, backend development, database integration, and security-conscious system architecture. It serves as a comprehensive representation of my ability to take an existing system, evaluate its limitations, and enhance it into a more robust, maintainable, and enterprise-aligned solution.
 
 ---
 
