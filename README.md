@@ -1,3 +1,3 @@
-CS 499 Computer Science Captstone
+#CS 499 Computer Science Captstone
 
 Victor Y. Gonzalez Lopez
